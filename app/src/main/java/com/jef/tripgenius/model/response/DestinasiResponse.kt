@@ -17,35 +17,35 @@ data class DestinasiResponse(
 data class DataItem(
 
 	@field:SerializedName("coodinate")
-	val coodinate: String? = null,
+	val coodinate: String,
 
 	@field:SerializedName("image")
-	val image: String? = null,
+	val image: String,
 
 	@field:SerializedName("city")
-	val city: String? = null,
+	val city: String,
 
 	@field:SerializedName("price")
-	val price: String? = null,
+	val price: String,
 
 	@field:SerializedName("name")
-	val name: String? = null,
+	val name: String,
 
 	@field:SerializedName("rating")
-	val rating: String? = null,
+	val rating: String,
 
 	@field:SerializedName("description")
-	val description: String? = null,
+	val description: String,
 
 	@field:SerializedName("id")
-	val id: Int? = null,
+	val id: Int,
 
 	@field:SerializedName("category")
-	val category: String? = null,
+	val category: String,
 
 	@field:SerializedName("lat")
-	val lat: String? = null,
+	val lat: String,
 
 	@field:SerializedName("long")
-	val jsonMemberLong: String? = null
+	val jsonMemberLong: String
 )
