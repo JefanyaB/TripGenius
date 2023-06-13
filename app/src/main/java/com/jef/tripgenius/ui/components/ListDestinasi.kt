@@ -53,9 +53,9 @@ fun MenuItem(
             Column {
                 Text(
                     text = menu.title,
-                    maxLines = 1,
+                    maxLines = 2,
                     overflow= TextOverflow.Ellipsis,
-                    fontSize = 14.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                 )
                 Text(

@@ -5,26 +5,27 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.jef.tripgenius.model.request.LoginRequest
+import com.jef.tripgenius.model.response.Data
 import com.jef.tripgenius.model.response.LoginResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class UserPreferences private constructor(private val dataStore: DataStore<Preferences>) {
 
-//    fun getUser(): Flow<LoginResponse> {
-//        return dataStore.data.map { preferences ->
-//            LoginResponse(
-//                preferences[NAME_KEY] ?:"",
-//                preferences[ID_KEY] ?:"",
-//                preferences[TOKEN_KEY] ?:"",
-//            )
-//        }
-//    }
+    fun getUser(): Flow<Data> {
+        return dataStore.data.map { preferences ->
+            Data(
+                preferences[NAME_KEY] ?:"",
+                preferences[ID_KEY] ?:"",
+                preferences[TOKEN_KEY] ?:"",
+            )
+        }
+    }
 
-    suspend fun login(user: LoginResponse) {
+    suspend fun login(user: Data) {
         dataStore.edit { preferences ->
             preferences[NAME_KEY] = user.name
-            preferences[ID_KEY] = user.email
+            preferences[ID_KEY] = user.id
             preferences[TOKEN_KEY] = user.accessToken
         }
     }

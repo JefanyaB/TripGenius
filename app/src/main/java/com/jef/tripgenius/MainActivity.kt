@@ -1,14 +1,13 @@
 package com.jef.tripgenius
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Favorite
@@ -19,15 +18,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jef.tripgenius.model.BottomBarItem
 import com.jef.tripgenius.model.response.Menu
 import com.jef.tripgenius.model.response.dummyMenu
+import com.jef.tripgenius.ui.components.HomeSection
 import com.jef.tripgenius.ui.components.MenuItem
 import com.jef.tripgenius.ui.components.SearchBar
-import com.jef.tripgenius.ui.components.SectionText
 import com.jef.tripgenius.ui.theme.TripGeniusTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,17 +41,23 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun TripGeniusApp(){
+fun TripGeniusApp(modifier: Modifier = Modifier) {
     Scaffold(
         bottomBar = { BottomBar() }
-    ) {
-        Column {
+    ) { innerPadding ->
+        Column(
+            modifier = modifier
+                .padding(innerPadding)
+        ) {
             Banner()
-            SectionText(stringResource(R.string.title_menu))
-            MenuRow(dummyMenu)
+
+            HomeSection(
+                title = stringResource(R.string.title_menu),
+                content = { MenuRow(listMenu = dummyMenu) }
+            )
         }
     }
 }
@@ -76,9 +83,8 @@ fun MenuRow(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp),
-        modifier = modifier
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        state = rememberLazyListState(),
     ) {
         items(listMenu, key = { it.title }) { menu ->
             MenuItem(menu)
@@ -125,10 +131,11 @@ fun BottomBar(
     }
 }
 
-@Preview(showBackground = true)
+
+@Preview(showBackground = true, device = Devices.PIXEL_4)
 @Composable
-fun DefaultPreview() {
-    TripGeniusTheme {
+fun TripGeniusPreview() {
+    TripGeniusTheme{
         TripGeniusApp()
     }
 }
