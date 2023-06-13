@@ -62,7 +62,7 @@ fun DetailScreen(modifier: Modifier, detail : DataItem) {
                 contentDescription = "Banner Image",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
-                    .height(80.dp)
+                    .size(15.dp)
                     .fillMaxWidth()
             )
             Text(
@@ -82,6 +82,19 @@ fun DetailScreen(modifier: Modifier, detail : DataItem) {
             text = detail.description,
             fontSize = 10.sp,
         )
+        Text(
+            text = "Rekomendasi Hotel",
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ){
+
+        }
 
     }
 }
@@ -95,6 +108,7 @@ fun DetailScreenPreview() {
        DetailScreen(
            Modifier,
            detail = DataItem("Gunung", "gunung nya indah", "Gunung", "Bandung",
-               "Gunung Tanggkuban Perahu", "3", "Gunung Tangkuban Parahu) adalah salah satu gunung yang terletak di Lembang, Kabupaten Bandung Barat, Provinsi Jawa Barat, Indonesia. Sekitar 20 km ke arah utara Kota Bandung, dengan rimbun pohon pinus dan hamparan kebun teh di sekitarnya, Gunung Tangkuban Parahu mempunyai ketinggian setinggi 2.084 meter. Bentuk gunung ini adalah Stratovulcano dengan pusat erupsi yang berpindah dari timur ke barat. Jenis batuan yang dikeluarkan melalui letusan kebanyakan adalah lava dan sulfur, mineral yang dikeluarkan adalah sulfur belerang, mineral yang dikeluarkan saat gunung tidak aktif adalah uap belerang.", 1,"12","1","2" ) )
+               "Gunung Tanggkuban Perahu", "3", "Gunung Tangkuban Parahu) adalah salah satu gunung yang terletak di Lembang, Kabupaten Bandung Barat, Provinsi Jawa Barat, Indonesia. Sekitar 20 km ke arah utara Kota Bandung, dengan rimbun pohon pinus dan hamparan kebun teh di sekitarnya, Gunung Tangkuban Parahu mempunyai ketinggian setinggi 2.084 meter. Bentuk gunung ini adalah Stratovulcano dengan pusat erupsi yang berpindah dari timur ke barat. Jenis batuan yang dikeluarkan melalui letusan .",
+               1,"12","1","2" ) )
     }
 }

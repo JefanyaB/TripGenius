@@ -5,4 +5,6 @@
     <string name="menu_favorite">List </string>
     <string name="menu_profile">Profile </string>
     <string name="judul">Gunung Tanggkuban Perahu</string>
+    <string name="login">Login </string>
+    <string name="register">Register</string>
 </resources>
