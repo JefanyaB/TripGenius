@@ -24,8 +24,6 @@ fun PasswordTextField(modifier: Modifier, password:String, onValueChange:(String
             .clip(RoundedCornerShape(6.dp))
             .background(Color(0x1F6E8C))
             .padding(14.dp)
-
-
     )
 }
 @Preview(showBackground = true)

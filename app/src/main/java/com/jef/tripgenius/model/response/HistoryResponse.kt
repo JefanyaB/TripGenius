@@ -2,10 +2,10 @@ package com.jef.tripgenius.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class ListResponse(
+data class HistoryResponse(
 
 	@field:SerializedName("data")
-	val data: ListSuccess? = null,
+	val data: HistorySuccess? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -14,7 +14,7 @@ data class ListResponse(
 	val status: Boolean? = null
 )
 
-data class ListSuccess(
+data class HistorySuccess(
 
 	@field:SerializedName("kendaraan")
 	val kendaraan: Any? = null,

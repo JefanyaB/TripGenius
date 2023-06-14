@@ -22,15 +22,6 @@ import com.jef.tripgenius.retrofit.ApiConfig
 
 class LoginViewModel(private val pref: UserPreferences): ViewModel() {
 
-    private val _loginResponse = MutableLiveData<LoginResponse>()
-    val loginResponse: LiveData<LoginResponse> = _loginResponse
-
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
-
-    private val _errorResponse = MutableLiveData<ErrorResponse>()
-    val errorResponse: LiveData<ErrorResponse> = _errorResponse
-
     private val _email = mutableStateOf("")
     val email: State<String>
         get()=_email
@@ -39,7 +30,16 @@ class LoginViewModel(private val pref: UserPreferences): ViewModel() {
     val password: State<String>
         get()=_password
 
+    fun onEmailChanged(email: String){
+        _email.value = email
+    }
 
+    fun onPasswordChanged(password: String){
+        _password.value = password
+    }
+    fun LoginUser(toHome: () -> Unit){
+
+    }
 
 
 }
