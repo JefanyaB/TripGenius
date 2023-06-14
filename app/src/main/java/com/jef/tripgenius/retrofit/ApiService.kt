@@ -15,16 +15,16 @@ interface ApiService {
     @POST("/v1/auth/register")
     fun postRegister(
         @Body request: RegisterRequest,
-    ): Call<RegisterResponse>
+    ): RegisterResponse
 
     @POST("/v1/auth/login")
     fun postLogin(
         @Body request: LoginRequest,
-    ): Call<LoginResponse>
+    ): LoginResponse
 
     @GET("/v1/data/destination")
     fun stories(
         @Header("Authorization") token: String
-    ): Call<DestinasiResponse>
+    ): DestinasiResponse
 
 }

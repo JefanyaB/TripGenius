@@ -1,11 +1,13 @@
 package com.jef.tripgenius.ui.navigation
 
 sealed class TripGeniusScreen(val route:String){
-    object LoginScreen : TripGeniusScreen("login_screen")
-    object RegisterScreen : TripGeniusScreen("register_screen")
-    object HomeScreen : TripGeniusScreen("home_screen")
-    object ProfileScreen : TripGeniusScreen("profile_screen")
-    object ListScreen : TripGeniusScreen("list_screen")
-    object HistoryScreen : TripGeniusScreen("history_screen")
-    object DetailScreen : TripGeniusScreen("detail_screen")
+    object LoginScreen : TripGeniusScreen("login")
+    object RegisterScreen : TripGeniusScreen("register")
+    object HomeScreen : TripGeniusScreen("home")
+    object ProfileScreen : TripGeniusScreen("profile")
+    object ListScreen : TripGeniusScreen("list")
+    object HistoryScreen : TripGeniusScreen("history")
+    object DetailScreen : TripGeniusScreen("detail/{id}"){
+        fun createRoute(id:String) = "result/$id"
+    }
 }

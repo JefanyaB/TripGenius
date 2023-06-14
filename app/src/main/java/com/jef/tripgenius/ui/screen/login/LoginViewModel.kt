@@ -3,24 +3,18 @@ package com.jef.tripgenius.ui.screen.login
 import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.gson.Gson
+import com.jef.tripgenius.data.TripGeniusRepository
+import com.jef.tripgenius.ui.common.UiState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import com.jef.tripgenius.model.UserPreferences
-import com.jef.tripgenius.model.request.LoginRequest
-import com.jef.tripgenius.model.response.Data
-import com.jef.tripgenius.model.response.ErrorResponse
-import com.jef.tripgenius.model.response.LoginResponse
-import com.jef.tripgenius.retrofit.ApiConfig
+import javax.inject.Inject
 
 
-class LoginViewModel(private val pref: UserPreferences): ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(private val repository : TripGeniusRepository) : ViewModel() {
 
     private val _email = mutableStateOf("")
     val email: State<String>
@@ -38,8 +32,22 @@ class LoginViewModel(private val pref: UserPreferences): ViewModel() {
         _password.value = password
     }
     fun LoginUser(toHome: () -> Unit){
+        viewModelScope.launch {
+            repository.loginUser(_email.value, _password.value)
+                .collect {
+                    when (it){
+                        is UiState.Loading -> {
+                        }
+                        is UiState.Success -> {
+                            Log.d("berhasil", "ini Jalan")
+                            toHome()
+                        }
+                        is UiState.Error -> {
 
+                        }
+                    }
+                }
+        }
     }
-
 
 }

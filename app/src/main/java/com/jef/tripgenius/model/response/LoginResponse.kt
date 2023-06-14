@@ -13,7 +13,6 @@ data class LoginResponse(
 	@field:SerializedName("status")
 	val status: Boolean
 )
-
 data class Data(
 
 	@field:SerializedName("name")
