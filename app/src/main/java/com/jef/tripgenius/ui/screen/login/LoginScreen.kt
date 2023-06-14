@@ -20,14 +20,6 @@ fun LoginScreen(
     toRegister: () -> Unit,
     viewModel: LoginViewModel
 ){
-    Column(){
-        Text(
-            text = "detail.name",
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
-        )
-    }
+
 
 }

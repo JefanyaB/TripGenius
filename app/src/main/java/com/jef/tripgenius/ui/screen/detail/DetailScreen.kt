@@ -86,7 +86,7 @@ fun DetailScreen(modifier: Modifier, detail : DataItem) {
             text = "Rekomendasi Hotel",
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
-            fontSize = 28.sp,
+            fontSize = 22.sp,
             fontWeight = FontWeight.Bold,
         )
         Row(
