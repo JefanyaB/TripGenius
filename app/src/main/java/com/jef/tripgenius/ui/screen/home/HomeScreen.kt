@@ -28,12 +28,10 @@ import com.jef.tripgenius.ui.components.MenuItem
 import com.jef.tripgenius.ui.components.SearchBar
 import com.jef.tripgenius.ui.theme.TripGeniusTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TripGeniusApp(modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
 
     Banner()
-
     HomeSection(
         title = stringResource(R.string.title_menu),
         content = { MenuRow(listMenu = dummyMenu) }
@@ -74,6 +72,6 @@ fun MenuRow(
 @Composable
 fun TripGeniusPreview() {
     TripGeniusTheme{
-        TripGeniusApp()
+        HomeScreen()
     }
 }
