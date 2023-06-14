@@ -7,7 +7,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.jef.tripgenius.R
 
 @Composable
@@ -17,9 +20,14 @@ fun LoginScreen(
     toRegister: () -> Unit,
     viewModel: LoginViewModel
 ){
-    Column(modifier = modifier.padding(16.dp)){
-        Text(stringResource(R.string.login), style = MaterialTheme.typography.displaySmall)
-
+    Column(){
+        Text(
+            text = "detail.name",
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+        )
     }
 
 }
