@@ -13,6 +13,7 @@ class TripGeniusRepository @Inject constructor(
     private val apiService: ApiService
 
 ) {
+
     suspend fun loginUser(email: String, password: String) : Flow<UiState<LoginResponse>> = flow{
         emit(UiState.Loading)
         try {
@@ -22,5 +23,4 @@ class TripGeniusRepository @Inject constructor(
             emit(UiState.Error(e.message ?: "Error Happened"))
         }
     }
-
 }

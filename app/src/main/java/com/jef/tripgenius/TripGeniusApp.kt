@@ -20,7 +20,7 @@ import com.jef.tripgenius.ui.navigation.TripGeniusScreen
 @Composable
 fun TripGeniusApp(
     modifier: Modifier = Modifier,
-    starDestination: String,
+    startDestination: String,
     navController: NavHostController = rememberNavController()
 ){
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -35,7 +35,7 @@ fun TripGeniusApp(
     ) { paddingValues ->
         NavGraph(
             navController = navController,
-            startDestination = starDestination,
+            startDestination = startDestination,
             modifier = Modifier.padding(paddingValues)
         )
     }
