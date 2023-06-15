@@ -19,5 +19,4 @@ class MainViewModel @Inject constructor(private val repository: TripGeniusReposi
     init{
         _startDestination.value = TripGeniusScreen.LoginScreen.route
     }
-
 }

@@ -23,4 +23,5 @@ class TripGeniusRepository @Inject constructor(
             emit(UiState.Error(e.message ?: "Error Happened"))
         }
     }
+
 }
